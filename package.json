@@ -1,0 +1,44 @@
+{
+  "name": "stagecue-audio",
+  "version": "0.1.0",
+  "description": "イベントで曲順再生を安全に行うための、日本語Mac音楽再生アプリ。",
+  "main": "src/main.js",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check src/main.js && node --check src/preload.js && node --check src/renderer/controller.js",
+    "build:mac:dir": "electron-builder --mac dir",
+    "build:mac": "electron-builder --mac"
+  },
+  "devDependencies": {
+    "electron": "^39.8.5",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "tech.shalomworks.stagecueaudio",
+    "productName": "StageCue Audio",
+    "executableName": "StageCueAudio",
+    "files": [
+      "src/**/*",
+      "package.json",
+      "README.md"
+    ],
+    "mac": {
+      "category": "public.app-category.music",
+      "target": [
+        "dir",
+        "dmg"
+      ],
+      "identity": null
+    },
+    "fileAssociations": [
+      {
+        "ext": "stagecue",
+        "name": "StageCue Audio Setlist",
+        "role": "Editor"
+      }
+    ]
+  }
+}
+

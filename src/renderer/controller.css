@@ -1,0 +1,281 @@
+:root {
+  color-scheme: dark;
+  --bg: #101318;
+  --panel: #171c22;
+  --panel-2: #202832;
+  --line: #33404d;
+  --text: #ecf2f7;
+  --muted: #9aa8b5;
+  --accent: #4fb3ff;
+  --accent-2: #48d597;
+  --danger: #ff6b6b;
+  --warn: #f5c15b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 1020px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #24303b;
+  color: var(--text);
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+button.primary {
+  background: #145f8d;
+  border-color: #247db5;
+}
+
+button.danger {
+  color: #ffe9e9;
+  border-color: #7a3c3c;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  background: #121820;
+}
+
+.title-input {
+  width: min(520px, 46vw);
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  color: var(--text);
+  font-size: 28px;
+  font-weight: 700;
+  outline: none;
+}
+
+.title-input:focus {
+  border-color: var(--accent);
+}
+
+.subtitle,
+.label,
+.time-status {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.top-actions,
+.cue-actions,
+.transport-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 220px minmax(420px, 1fr) 340px;
+  gap: 12px;
+  padding: 12px;
+  min-height: 0;
+}
+
+.panel {
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.stage-list,
+.cue-list,
+.detail-panel {
+  min-height: 0;
+  overflow: auto;
+}
+
+.stage-list,
+.cue-list {
+  padding: 10px;
+}
+
+.stage-item,
+.cue-item {
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 10px;
+}
+
+.stage-item.active,
+.cue-item.active {
+  background: #203446;
+  border-color: #3b83b3;
+}
+
+.stage-item {
+  margin-bottom: 8px;
+}
+
+.cue-item {
+  display: grid;
+  grid-template-columns: 38px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 8px;
+  background: var(--panel-2);
+}
+
+.cue-number {
+  color: var(--accent-2);
+  font-weight: 700;
+}
+
+.cue-name {
+  font-weight: 700;
+}
+
+.cue-meta {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.cue-badge {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.drop-zone {
+  margin: 10px 10px 0;
+  padding: 12px;
+  border: 1px dashed #536577;
+  border-radius: 8px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.drop-zone.dragging {
+  color: var(--text);
+  border-color: var(--accent);
+  background: #173044;
+}
+
+.empty-detail {
+  padding: 18px;
+  color: var(--muted);
+}
+
+.cue-form {
+  padding: 12px;
+  display: grid;
+  gap: 12px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.cue-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.cue-form label.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #111820;
+  color: var(--text);
+  padding: 9px;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+}
+
+.transport {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) auto minmax(220px, 0.8fr);
+  gap: 16px;
+  align-items: center;
+  padding: 14px 18px;
+  border-top: 1px solid var(--line);
+  background: #121820;
+}
+
+.now-title,
+.next-title {
+  margin-top: 3px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.go {
+  min-width: 116px;
+  padding: 16px 24px;
+  border-color: #36b77b;
+  background: #138351;
+  font-size: 22px;
+  font-weight: 800;
+}
